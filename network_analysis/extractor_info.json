@@ -1,15 +1,15 @@
 {
   "@context": "http://clowder.ncsa.illinois.edu/contexts/extractors.jsonld",
   "name": "smm.network.analysis",
-  "version": "0.1",
-  "description": "Description on this extractor",
+  "version": "0.1.1",
+  "description": "Social network analysis is the process of investigating social structures through the use of networks and graph theory .It characterizes networked structures in terms of nodes (individual actors, people, or things within the network) and the ties, edges, or links (relationships or interactions) that connect them.",
   "author": "Wang, Chen <cwang138@illinois.edu>",
   "contributors": [],
   "contexts": [{}],
   "repository": [
     {
       "repType": "git",
-      "repUrl": "https://github.com/ncsa/standalone-smm-analytics"
+      "repUrl": "https://github.com/clowder-framework/smm-extractor.git"
     }
   ],
   "process": {
