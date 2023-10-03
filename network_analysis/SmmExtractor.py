@@ -111,11 +111,11 @@ class SmmExtractor(Extractor):
             if fname != 'uid':
                 local_output_path = save_local_output("", fname, output_data)
                 uploaded_file_id = pyclowder.files.upload_to_dataset(connector, host, secret_key, dataset_id,
-                                                                 local_output_path)
+                                                                     local_output_path)
                 connector.message_process(resource, "Saving " + local_output_path + "...")
 
-                # write params to metadata
                 metadata = self.get_metadata(userParams, 'file', uploaded_file_id, host)
+                logger.debug(metadata)
                 pyclowder.files.upload_metadata(connector, host, secret_key, uploaded_file_id, metadata)
                 connector.message_process(resource, "Writing metadata...")
 
