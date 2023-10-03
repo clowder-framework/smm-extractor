@@ -103,6 +103,7 @@ class SmmExtractor(Extractor):
         # execute the algorithm
         # Parse user parameters to determine which column to analyze
         userParams = parameters.get('parameters')
+
         output = algorithm(df, userParams)
         connector.message_process(resource, "Running the algorithm...")
 
@@ -110,14 +111,15 @@ class SmmExtractor(Extractor):
         for fname, output_data in output.items():
             if fname != 'uid':
                 local_output_path = save_local_output("", fname, output_data)
+                connector.message_process(resource, "Saving " + local_output_path + "...")
                 uploaded_file_id = pyclowder.files.upload_to_dataset(connector, host, secret_key, dataset_id,
                                                                      local_output_path)
-                connector.message_process(resource, "Saving " + local_output_path + "...")
+                connector.message_process(resource, local_output_path + "saved...")
 
-                metadata = self.get_metadata(userParams, 'file', uploaded_file_id, host)
-                logger.debug(metadata)
-                pyclowder.files.upload_metadata(connector, host, secret_key, uploaded_file_id, metadata)
                 connector.message_process(resource, "Writing metadata...")
+                metadata = self.get_metadata(userParams, 'file', uploaded_file_id, host)
+                pyclowder.files.upload_metadata(connector, host, secret_key, uploaded_file_id, metadata)
+                connector.message_process(resource, "Metadata written...")
 
 
 if __name__ == "__main__":

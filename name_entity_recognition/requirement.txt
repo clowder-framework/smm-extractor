@@ -13,4 +13,4 @@ six==1.12.0
 sklearn-crfsuite==0.3.6
 joblib==0.13.2
 pika>=1.1.0
-pyclowder==3.0.2
+pyclowder==3.0.4

@@ -20,6 +20,4 @@ RUN cd ./data && wget http://nlp.stanford.edu/data/glove.twitter.27B.zip && unzi
 # Can add heartbeat to change the refresh rate
 CMD python3 SmmExtractor.py --heartbeat 40
 
-ENV MAIN_SCRIPT="SmmExtractor.py" \
-    CLOWDER_VERSION=1 \
-    RABBITMQ_QUEUE="ncsa.image.preview"
+ENV MAIN_SCRIPT="SmmExtractor.py"
