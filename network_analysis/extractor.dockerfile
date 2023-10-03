@@ -12,4 +12,6 @@ RUN pip install --no-cache-dir -r requirement.txt
 # Can add heartbeat to change the refresh rate
 CMD python3 SmmExtractor.py --heartbeat 40
 
-ENV MAIN_SCRIPT="SmmExtractor.py"
+ENV MAIN_SCRIPT="SmmExtractor.py" \
+    CLOWDER_VERSION=1 \
+    RABBITMQ_QUEUE="ncsa.image.preview"
