@@ -114,7 +114,7 @@ class SmmExtractor(Extractor):
                 connector.message_process(resource, "Saving " + local_output_path + "...")
                 uploaded_file_id = pyclowder.files.upload_to_dataset(connector, host, secret_key, dataset_id,
                                                                      local_output_path)
-                connector.message_process(resource, local_output_path + "saved...")
+                connector.message_process(resource, local_output_path + " saved...")
 
                 connector.message_process(resource, "Writing metadata...")
                 metadata = self.get_metadata(userParams, 'file', uploaded_file_id, host)

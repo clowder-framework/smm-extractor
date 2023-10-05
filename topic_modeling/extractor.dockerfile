@@ -16,4 +16,5 @@ RUN unzip /usr/local/share/nltk_data/corpora/wordnet.zip -d /usr/local/share/nlt
 # Can add heartbeat to change the refresh rate
 CMD python3 SmmExtractor.py --heartbeat 40
 
-ENV MAIN_SCRIPT="SmmExtractor.py"
+ENV MAIN_SCRIPT="SmmExtractor.py" \
+    CLOWDER_VERSION=1

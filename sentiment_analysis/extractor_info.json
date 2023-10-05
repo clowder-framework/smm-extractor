@@ -1,15 +1,15 @@
 {
   "@context": "http://clowder.ncsa.illinois.edu/contexts/extractors.jsonld",
   "name": "smm.preprocessing.analysis",
-  "version": "0.8",
-  "description": "Description on this extractor",
+  "version": "0.1.1",
+  "description": "Sentiment analysis (sometimes known as opinion mining or emotion AI) refers to the use of natural language processing, text analysis, computational linguistics, and biometrics to systematically identify, extract, quantify, and study affective states and subjective information.",
   "author": "Wang, Chen <cwang138@illinois.edu>",
   "contributors": [],
   "contexts": [{}],
   "repository": [
     {
       "repType": "git",
-      "repUrl": "https://github.com/ncsa/standalone-smm-analytics"
+      "repUrl": "https://github.com/clowder-framework/smm-extractor.git"
     }
   ],
   "process": {
