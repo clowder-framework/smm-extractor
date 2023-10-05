@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 03-15-2023
 
 ### Added
-- Initial release of the name entity recognition extractor
+- Initial release of the network analysis extractor
 
 
 ## [0.1.1] - 10-03-2023
