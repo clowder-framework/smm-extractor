@@ -21,7 +21,7 @@ on:
 # Certain actions will only run when this is the main repo.
 env:
   MAIN_REPO: clowder-framework/smm-extractor
-  DOCKERHUB_ORG: clowder
+  DOCKERHUB_ORG: socialmediamacroscope
 
 jobs:
   docker:
@@ -68,7 +68,7 @@ jobs:
           DOCKERHUB_PUSH="false"
           DOCKERHUB_README="false"
           if [ "$BRANCH" == "main" -a "${{ github.repository }}" == "${{ env.MAIN_REPO }}" ]; then
-            if [ "${{ secrets.DOCKERHUB_USERNAME }}" != "" -a "${{ secrets.DOCKERHUB_PASSWORD }}" != "" ]; then
+            if [ "${{ secrets.SMM_DOCKERHUB_USERNAME }}" != "" -a "${{ secrets.SMM_DOCKERHUB_PASSWORD }}" != "" ]; then
               DOCKERHUB_PUSH="true"
               if [ -e "${{ matrix.FOLDER }}/README.md" ]; then
                 DOCKERHUB_README="true"
@@ -137,8 +137,8 @@ jobs:
         if: env.DOCKERHUB_PUSH == 'true'
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          username: ${{ secrets.SMM_DOCKERHUB_USERNAME }}
+          password: ${{ secrets.SMM_DOCKERHUB_PASSWORD }}
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v2
@@ -168,7 +168,7 @@ jobs:
         if: env.DOCKERHUB_README == 'true'
         uses: peter-evans/dockerhub-description@v2
         env:
-          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-          DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+          DOCKERHUB_USERNAME: ${{ secrets.SMM_DOCKERHUB_USERNAME }}
+          DOCKERHUB_PASSWORD: ${{ secrets.SMM_DOCKERHUB_PASSWORD }}
           DOCKERHUB_REPOSITORY: ${{ env.DOCKERHUB_ORG }}/${{ matrix.name }}
           README_FILEPATH: ${{ matrix.FOLDER }}/README.md
