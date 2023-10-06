@@ -1,4 +1,4 @@
-FROM python:3.8.5
+FROM socialmediamacroscope/topic_modeling:0.1.3
 
 RUN mkdir -p /scripts
 WORKDIR /scripts
@@ -7,10 +7,6 @@ COPY . ./
 
 # Install pyClowder and any other python dependencies
 RUN pip install --no-cache-dir -r requirement.txt
-RUN python3 -m nltk.downloader -d /usr/local/share/nltk_data stopwords wordnet
-
-# wordnet cannot unzip fix
-RUN unzip /usr/local/share/nltk_data/corpora/wordnet.zip -d /usr/local/share/nltk_data/corpora
 
 # Command to be run when container is run
 # Can add heartbeat to change the refresh rate
