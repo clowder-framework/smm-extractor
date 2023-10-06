@@ -1,15 +1,12 @@
-FROM python:3.8.5
+FROM socialmediamacroscope/preprocessing:latest
 
 RUN mkdir -p /scripts
 WORKDIR /scripts
 
-COPY . ./
+COPY ./SmmExtractor.py ./
 
-RUN pip install --no-cache-dir -r requirement.txt
-RUN python3 -m nltk.downloader -d /usr/local/share/nltk_data punkt stopwords averaged_perceptron_tagger wordnet
-
-# wordnet cannot unzip fix
-RUN unzip /usr/local/share/nltk_data/corpora/wordnet.zip -d /usr/local/share/nltk_data/corpora
+# Install pyClowder and any other python dependencies
+RUN pip install --no-cache-dir -r ../requirement.txt
 
 # Command to be run when container is run
 # Can add heartbeat to change the refresh rate

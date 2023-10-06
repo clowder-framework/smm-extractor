@@ -7,6 +7,7 @@ To build Clowder SMM extractors, make sure to use the correct dockerfile in each
 dockerfile**). 
 * Note you can also build SMM extractor (**dockerfile**) that is being used independently of Clowder but on the 
   SMM system.
+* Build from root directory of this repo.
 
 Some of the useful command:
 

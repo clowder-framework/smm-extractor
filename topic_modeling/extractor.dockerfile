@@ -1,12 +1,12 @@
-FROM socialmediamacroscope/topic_modeling:0.1.3
+FROM socialmediamacroscope/topic_modeling:latest
 
 RUN mkdir -p /scripts
 WORKDIR /scripts
 
-COPY . ./
+COPY ./SmmExtractor.py ./SmmExtractor.py
 
 # Install pyClowder and any other python dependencies
-RUN pip install --no-cache-dir -r requirement.txt
+RUN pip install --no-cache-dir -r ../requirement.txt
 
 # Command to be run when container is run
 # Can add heartbeat to change the refresh rate

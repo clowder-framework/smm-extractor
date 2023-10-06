@@ -1,12 +1,12 @@
-FROM python:3.8.5
+FROM socialmediamacroscope/network_analysis:latest
 
 RUN mkdir -p /scripts
 WORKDIR /scripts
 
-COPY . ./
+COPY ./SmmExtractor.py ./
 
-RUN pip install --no-cache-dir -r requirement.txt
-
+# Install pyClowder and any other python dependencies
+RUN pip install --no-cache-dir -r ../requirement.txt
 
 # Command to be run when container is run
 # Can add heartbeat to change the refresh rate

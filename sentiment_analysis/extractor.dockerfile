@@ -1,17 +1,12 @@
-FROM socialmediamacroscope/sentiment_analysis:base
+FROM socialmediamacroscope/sentiment_analysis:latest
 
 RUN mkdir -p /scripts
 WORKDIR /scripts
 
-COPY . ./
+COPY ./SmmExtractor.py ./SmmExtractor.py
 
 # Install pyClowder and any other python dependencies
-RUN pip install --no-cache-dir -r requirement.txt
-RUN python3 -m nltk.downloader -d /usr/local/share/nltk_data stopwords wordnet punkt averaged_perceptron_tagger \
-vader_lexicon sentiwordnet
-
-# wordnet cannot unzip fix
-RUN unzip /usr/local/share/nltk_data/corpora/wordnet.zip -d /usr/local/share/nltk_data/corpora
+RUN pip install --no-cache-dir -r ../requirement.txt
 
 # Command to be run when container is run
 # Can add heartbeat to change the refresh rate

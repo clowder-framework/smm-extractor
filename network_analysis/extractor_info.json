@@ -9,6 +9,10 @@
   "repository": [
     {
       "repType": "git",
+      "repUrl": "https://github.com/ncsa/standalone-smm-analytics.git"
+    },
+    {
+      "repType": "git",
       "repUrl": "https://github.com/clowder-framework/smm-extractor.git"
     }
   ],
