@@ -32,26 +32,20 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        name:
-          - name_entity_recognition_extractor
-          - network_analysis_extractor
-          - preprocessing_extractor
-          - sentiment_analysis_extractor
-          - topic_modeling_extractor
         include:
-          - name: smm.name.entity.recognition
+          - name: name_entity_recognition_extractor
             FOLDER: name_entity_recognition_extractor
             PLATFORM: "linux/amd64,linux/arm64"
-          - name: smm.network.analysis
+          - name: network_analysis_extractor
             FOLDER: network_analysis_extractor
             PLATFORM: "linux/amd64,linux/arm64"
-          - name: smm.preprocessing.analysis
+          - name: preprocessing_extractor
             FOLDER: preprocessing_extractor
             PLATFORM: "linux/amd64,linux/arm64"
-          - name: smm.sentiment.analysis
+          - name: sentiment_analysis_extractor
             FOLDER: sentiment_analysis_extractor
             PLATFORM: "linux/amd64,linux/arm64"
-          - name: smm.topic.modeling"
+          - name: topic_modeling_extractor
             FOLDER: topic_modeling_extractor
             PLATFORM: "linux/amd64,linux/arm64"
 
@@ -99,7 +93,7 @@ jobs:
           fi
 
           # create a list of all images to be pushed
-          IMAGE="extractors-${{ matrix.name }}"
+          IMAGE=${{ matrix.name }}
           IMAGES=""
           for tag in ${tags}; do
             if [ "$DOCKERHUB_PUSH" == "true" ]; then
