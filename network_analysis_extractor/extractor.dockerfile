@@ -5,9 +5,10 @@ WORKDIR /scripts
 
 COPY ./SmmExtractor.py ./
 COPY ./extractor_info.json ./
+COPY ./requirement.txt ./extractor-requirement.txt
 
 # Install pyClowder and any other python dependencies
-RUN pip install --no-cache-dir -r ./requirement.txt -U
+RUN pip3 install --no-cache-dir -r ./extractor-requirement.txt -U
 
 # Command to be run when container is run
 # Can add heartbeat to change the refresh rate
