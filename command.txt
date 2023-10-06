@@ -1,0 +1,14 @@
+docker build -f extractor.dockerfile -t socialmediamacroscope/name_entity_recognition_extractor:latest .
+docker push socialmediamacroscope/name_entity_recognition_extractor:latest
+
+docker build -f extractor.dockerfile -t socialmediamacroscope/network_analysis_extractor:latest .
+docker push socialmediamacroscope/network_analysis_extractor:latest
+
+docker build -f extractor.dockerfile -t socialmediamacroscope/preprocessing_extractor:latest .
+docker push socialmediamacroscope/preprocessing_extractor:latest
+
+docker build -f extractor.dockerfile -t socialmediamacroscope/sentiment_analysis_extractor:latest .
+docker push socialmediamacroscope/sentiment_analysis_extractor:latest
+
+docker build -f extractor.dockerfile -t socialmediamacroscope/topic_modeling_extractor:latest .
+docker push socialmediamacroscope/topic_modeling_extractor:latest

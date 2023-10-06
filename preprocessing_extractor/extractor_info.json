@@ -1,0 +1,68 @@
+{
+  "@context": "http://clowder.ncsa.illinois.edu/contexts/extractors.jsonld",
+  "name": "smm.preprocessing.analysis",
+  "version": "0.1.1",
+  "description": "Tokenization is the process of dividing written text into meaningful units, such as words, sentences , or topics. Lemmatization and Stemming reduces word forms to common base words. Part-of-speech Tagging is the process of marking up a word in a text (corpus) as corresponding to a particular part of speech, based on both its definition and its context.",
+  "author": "Wang, Chen <cwang138@illinois.edu>",
+  "contributors": [],
+  "contexts": [{}],
+  "repository": [
+    {
+      "repType": "git",
+      "repUrl": "https://github.com/ncsa/standalone-smm-analytics.git"
+    },
+    {
+      "repType": "git",
+      "repUrl": "https://github.com/clowder-framework/smm-extractor.git"
+    }
+  ],
+  "process": {
+    "file": [
+      "manual"
+    ]
+  },
+  "external_services": [],
+  "dependencies": [],
+  "bibtex": [],
+  "parameters": {
+    "schema": {
+      "column": {
+        "type": "string",
+        "title": "Text Column Header",
+        "default": "text"
+      },
+      "process": {
+        "type": "string",
+        "title": "Sentiment Analysis Algorithms",
+         "enum": [
+           "lemmatization",
+           "stemming",
+           "both"
+        ],
+        "default": "lemmatization"
+      },
+      "tagger": {
+        "type": "string",
+        "title": "Sentiment Analysis Algorithms",
+         "enum": [
+           "posTag"
+        ],
+        "default": "posTag"
+      }
+    },
+    "form": [
+      {
+        "key": "column",
+        "type": "text"
+      },
+      {
+        "key": "process",
+        "type": "select"
+      },
+      {
+        "key": "tagger",
+        "type": "select"
+      }
+    ]
+  }
+}
