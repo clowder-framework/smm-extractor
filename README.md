@@ -13,7 +13,7 @@ Some of the useful command:
 
 Build
 ```angular2html
-docker build -f extractor.dockerfile -t socialmediamacroscope/network_analysis_extractor:latest .
+docker build -f network_analysis/extractor.dockerfile -t socialmediamacroscope/network_analysis_extractor:latest .
 ```
 
 Push
