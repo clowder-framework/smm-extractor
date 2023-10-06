@@ -158,6 +158,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
+          dockerfile: ${{ matrix.FOLDER }}/extractor.dockerfile
           context: ${{ matrix.FOLDER }}
           platforms: ${{ matrix.PLATFORM }}
           cache-from: type=gha,scope=${{ matrix.name }}
