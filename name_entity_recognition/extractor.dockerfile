@@ -5,6 +5,7 @@ RUN mkdir -p /scripts
 WORKDIR /scripts
 
 COPY ./SmmExtractor.py ./
+COPY ./extractor_info.json ./
 
 # Install pyClowder and any other python dependencies
 RUN pip install --no-cache-dir -r ../requirement.txt

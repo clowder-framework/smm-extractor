@@ -7,13 +7,12 @@ To build Clowder SMM extractors, make sure to use the correct dockerfile in each
 dockerfile**). 
 * Note you can also build SMM extractor (**dockerfile**) that is being used independently of Clowder but on the 
   SMM system.
-* Build from root directory of this repo.
 
 Some of the useful command:
 
 Build
 ```angular2html
-docker build -f network_analysis/extractor.dockerfile -t socialmediamacroscope/network_analysis_extractor:latest .
+docker build -f extractor.dockerfile -t socialmediamacroscope/network_analysis_extractor:latest .
 ```
 
 Push
