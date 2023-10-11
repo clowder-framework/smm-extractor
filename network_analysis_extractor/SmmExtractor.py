@@ -83,7 +83,7 @@ def save_local_output(localSavePath, fname, output_data):
 
 # TODO wrap this into method on pyclowder
 def create_output_folder(dataset_id, host, secret_key):
-    url = posixpath.join(host, f'api/datasets/{dataset_id}/folders')
+    url = posixpath.join(host, f'api/v2/datasets/{dataset_id}/folders')
     headers = {"Content-Type": "application/json",
                "X-API-KEY": secret_key}
     current_timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
@@ -128,7 +128,10 @@ class SmmExtractor(Extractor):
         # Create folder to save output
         clowder_version = int(os.getenv('CLOWDER_VERSION', '1'))
         if clowder_version == 2:
+            connector.message_process(resource, "Creating output folder...")
             folder_id = create_output_folder(dataset_id, host, secret_key)
+            if folder_id is not None:
+                connector.message_process(resource, f"folder id: {folder_id} created ...")
         else:
             folder_id = None
         for fname, output_data in output.items():
