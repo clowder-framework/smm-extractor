@@ -1,7 +1,7 @@
 {
   "@context": "http://clowder.ncsa.illinois.edu/contexts/extractors.jsonld",
   "name": "smm.preprocessing.analysis",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Tokenization is the process of dividing written text into meaningful units, such as words, sentences , or topics. Lemmatization and Stemming reduces word forms to common base words. Part-of-speech Tagging is the process of marking up a word in a text (corpus) as corresponding to a particular part of speech, based on both its definition and its context.",
   "author": "Wang, Chen <cwang138@illinois.edu>",
   "contributors": [],
