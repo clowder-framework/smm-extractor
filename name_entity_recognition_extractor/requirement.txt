@@ -1,2 +1,1 @@
-pyclowder==3.0.4
-
+pyclowder==3.0.7
