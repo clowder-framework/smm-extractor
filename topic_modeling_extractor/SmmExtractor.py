@@ -1,19 +1,22 @@
 #!/usr/bin/env python
 
 """Example extractor based on the clowder code."""
+import posixpath
+
 import pandas as pd
 import json
 import os
 import csv
 import types
 import pickle
+from datetime import datetime
 
 import logging
 from pyclowder.extractors import Extractor
 import pyclowder.files
 
 from algorithm import algorithm
-
+import requests
 
 def save_local_output(localSavePath, fname, output_data):
     """
@@ -78,6 +81,21 @@ def save_local_output(localSavePath, fname, output_data):
     return os.path.join(localSavePath, fname)
 
 
+# TODO wrap this into method on pyclowder
+def create_output_folder(dataset_id, host, secret_key):
+    url = posixpath.join(host, f'api/v2/datasets/{dataset_id}/folders')
+    headers = {"Content-Type": "application/json",
+               "X-API-KEY": secret_key}
+    current_timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+    folder_data = {"name": current_timestamp}
+    response = requests.post(url, json=folder_data, headers=headers)
+    if response.status_code == 200:
+        return response.json().get("id")
+    else:
+        print(f"Error creating folder: {response.status_code} {response.text}")
+        return None
+
+
 class SmmExtractor(Extractor):
     """Count the number of characters, words and lines in a text file."""
     def __init__(self):
@@ -107,13 +125,22 @@ class SmmExtractor(Extractor):
         output = algorithm(df, userParams)
         connector.message_process(resource, "Running the algorithm...")
 
-        # upload object to s3 bucket and return the url
+        # Create folder to save output
+        clowder_version = int(os.getenv('CLOWDER_VERSION', '1'))
+        if clowder_version == 2:
+            connector.message_process(resource, "Creating output folder...")
+            folder_id = create_output_folder(dataset_id, host, secret_key)
+            if folder_id is not None:
+                connector.message_process(resource, f"folder id: {folder_id} created ...")
+        else:
+            folder_id = None
         for fname, output_data in output.items():
             if fname != 'uid':
                 local_output_path = save_local_output("", fname, output_data)
                 connector.message_process(resource, "Saving " + local_output_path + "...")
                 uploaded_file_id = pyclowder.files.upload_to_dataset(connector, host, secret_key, dataset_id,
-                                                                     local_output_path)
+                                                                     local_output_path,
+                                                                     folder_id=folder_id)
                 connector.message_process(resource, local_output_path + " saved...")
 
                 connector.message_process(resource, "Writing metadata...")

@@ -1,7 +1,7 @@
 {
   "@context": "http://clowder.ncsa.illinois.edu/contexts/extractors.jsonld",
   "name": "smm.topic.modeling",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "One of the primary applications of natural language processing is to automatically extract what topics people are discussing from large volumes of text. Topic modeling is a type of statistical modeling for discovering the abstract topics that occur in a collection of documents. Latent Dirichlet Allocation (LDA) is an example of topic model and is used to classify text in a document to a particular topic. It builds a topic per document model and words per topic model, modeled as Dirichlet distributions.",
   "author": "Wang, Chen <cwang138@illinois.edu>",
   "contributors": [],

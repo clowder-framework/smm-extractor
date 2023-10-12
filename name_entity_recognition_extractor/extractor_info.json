@@ -1,7 +1,7 @@
 {
   "@context": "http://clowder.ncsa.illinois.edu/contexts/extractors.jsonld",
   "name": "smm.name.entity.recognition",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Named-entity recognition (NER) (also known as entity identification, entity chunking and entity extraction) is a subtask of information extraction that seeks to locate and classify named entity mentions in unstructured text into pre-defined categories such as the person names, organizations, locations, medical codes, time expressions, quantities, monetary values, percentages, etc.",
   "author": "Wang, Chen <cwang138@illinois.edu>",
   "contributors": [],
