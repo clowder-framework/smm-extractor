@@ -1,6 +1,6 @@
 {
   "@context": "http://clowder.ncsa.illinois.edu/contexts/extractors.jsonld",
-  "name": "smm.autophrase",
+  "name": "smm.automated.phrase.mining",
   "version": "0.1.0",
   "description": "As one of the fundamental tasks in text analysis, phrase mining aims at extracting quality phrases from a text corpus. Phrase mining is important in various tasks such as information extraction/retrieval, taxonomy construction, and topic modeling.",
   "author": "Wang, Chen <cwang138@illinois.edu>",
