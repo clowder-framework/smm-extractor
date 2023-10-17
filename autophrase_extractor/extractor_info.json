@@ -1,11 +1,13 @@
 {
   "@context": "http://clowder.ncsa.illinois.edu/contexts/extractors.jsonld",
-  "name": "smm.sentiment.analysis",
-  "version": "0.1.2",
-  "description": "Sentiment analysis (sometimes known as opinion mining or emotion AI) refers to the use of natural language processing, text analysis, computational linguistics, and biometrics to systematically identify, extract, quantify, and study affective states and subjective information.",
+  "name": "smm.autophrase",
+  "version": "0.1.0",
+  "description": "As one of the fundamental tasks in text analysis, phrase mining aims at extracting quality phrases from a text corpus. Phrase mining is important in various tasks such as information extraction/retrieval, taxonomy construction, and topic modeling.",
   "author": "Wang, Chen <cwang138@illinois.edu>",
   "contributors": [],
-  "contexts": [{}],
+  "contexts": [
+    {}
+  ],
   "repository": [
     {
       "repType": "git",
@@ -31,20 +33,27 @@
         "title": "Text Column Header",
         "default": "text"
       },
+      "minSup": {
+        "type": "number",
+        "title": "Minimum Support",
+        "default": 3
+      },
       "algorithm": {
         "type": "string",
-        "title": "Sentiment Analysis Algorithms",
-         "enum": [
-           "vader",
-           "sentiWordNet",
-           "debias"
+        "title": "Automated Phrase Mining Algorithm",
+        "enum": [
+          "AutoPhrase (Automated Phrase Mining from Massive Text Corpora)"
         ],
-        "default": "vader"
+        "default": "AutoPhrase (Automated Phrase Mining from Massive Text Corpora)"
       }
     },
     "form": [
       {
         "key": "column",
+        "type": "text"
+      },
+      {
+        "key": "minSup",
         "type": "text"
       },
       {
