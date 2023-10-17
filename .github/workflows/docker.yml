@@ -152,7 +152,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          file: ${{ matrix.FOLDER }}/dockerfile
+          file: ${{ matrix.FOLDER }}/Dockerfile
           context: ${{ matrix.FOLDER }}
           platforms: ${{ matrix.PLATFORM }}
           cache-from: type=gha,scope=${{ matrix.name }}
