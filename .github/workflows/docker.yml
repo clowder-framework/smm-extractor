@@ -48,6 +48,9 @@ jobs:
           - name: topic_modeling_extractor
             FOLDER: topic_modeling_extractor
             PLATFORM: "linux/amd64,linux/arm64"
+          - name: autophrase_extractor
+            FOLDER: autophrase_extractor
+            PLATFORM: "linux/amd64,linux/arm64"
 
     steps:
       - uses: actions/checkout@v2
