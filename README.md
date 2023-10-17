@@ -30,6 +30,7 @@ You can access the latest pre-built SMM extractors on docker.io:
 [socialmediamacroscope/network_analysis_extractor](https://hub.docker.com/repository/docker/socialmediamacroscope/network_analysis_extractor/general)
 [socialmediamacroscope/preprocessing_extractor](https://hub.docker.com/repository/docker/socialmediamacroscope/preprocessing_extractor/general)
 [socialmediamacroscope/name_entity_recognition_extractor](https://hub.docker.com/repository/docker/socialmediamacroscope/name_entity_recognition_extractor/general)
+[socialmediamacroscope/autophrase_extractor](https://hub.docker.com/repository/docker/socialmediamacroscope/autophrase_extractor/general)
 
 To include those extractors with docker-compose:
 ```
